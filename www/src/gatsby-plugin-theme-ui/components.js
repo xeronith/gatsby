@@ -6,6 +6,8 @@ import Pullquote from "../components/shared/pullquote"
 import EggheadEmbed from "../components/shared/egghead-embed"
 import DateChart from "../components/chart"
 import CodeBlock from "../components/code-block"
+import Breakout from "../components/breakout"
+import VisuallyHidden from "../components/visually-hidden"
 
 export default {
   GuideList,
@@ -13,5 +15,7 @@ export default {
   DateChart,
   Pullquote,
   EggheadEmbed,
+  Breakout,
+  VisuallyHidden,
   pre: ({ children }) => <CodeBlock>{children}</CodeBlock>,
 }
