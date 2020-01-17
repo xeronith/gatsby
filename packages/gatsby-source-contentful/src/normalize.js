@@ -60,6 +60,11 @@ const _fixIds = (object, front = new Set()) => {
     return object.forEach(v => _fixIds(v, front))
   }
 
+  if (front.has(object)) {
+    return undefined
+  }
+
+  front.add(object)
   Object.getOwnPropertyNames(object).forEach(key => {
     if (key === `sys` && !object.sys.contentful_id) {
       object.sys.contentful_id = object.sys.id
@@ -68,6 +73,7 @@ const _fixIds = (object, front = new Set()) => {
 
     _fixIds(object[key], front)
   })
+  front.delete(object) // Memory vs efficiency
 
   return undefined // eslint.
 }
